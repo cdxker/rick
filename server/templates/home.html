@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <style>
+        body {
+            background: #000;
+            color: white;
+            display: flex;
+            padding: 50px 40px;
+            height: 100vh;
+        }
+
+        a {
+            color: inherit;
+            background: white;
+            color: black;
+            display: inline-block;
+            text-decoration: none;
+            margin-top: 5px;
+            padding: 10px 20px;
+        }
+
+        #yes {
+            color: green;
+        }
+
+        #no {
+            color: red;
+        }
+
+        #yes-bg {
+            background: #047857;
+        }
+
+        #no-bg {
+            background: #450a0a;
+        }
+    </style>
+</head>
+
+<body {% if on %} id="yes-bg" {% else %} id="no-bg" {% endif %}>
+    <div>
+        <div>
+            <h1> Toggle The Button thing </h1>
+        </div>
+
+        <div>
+            Is it on right now?
+            {% if on %} Yes {% else %} No {% endif %}
+        </div>
+        <a href="/toggle"> Toggle </a>
+    </div>
+</body>
+
+</html>
