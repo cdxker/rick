@@ -8,8 +8,9 @@
             background: #000;
             color: white;
             display: flex;
-            padding: 50px 40px;
-            height: 100vh;
+            flex-direction: column;
+            min-height: 100vh;
+            margin: 0;
         }
 
         a {
@@ -22,36 +23,36 @@
             padding: 10px 20px;
         }
 
-        #yes {
-            color: green;
-        }
-
-        #no {
-            color: red;
-        }
-
-        #yes-bg {
+        .yes-bg {
             background: #047857;
+            flex-grow: 1;
+            padding: 0px 40px;
         }
 
-        #no-bg {
+        .no-bg {
             background: #450a0a;
+            flex-grow: 1;
+            padding: 0px 40px;
         }
     </style>
 </head>
 
-<body {% if on %} id="yes-bg" {% else %} id="no-bg" {% endif %}>
-    <div>
+<body>
+    {% for i in range(0, 5) %}
+    <div {% if on[i] %} class="yes-bg" {% else %} class="no-bg" {% endif %}>
         <div>
-            <h1> Toggle The Button thing </h1>
-        </div>
+            <div>
+                <h1> Toggle Button {{ i + 1 }} </h1>
+            </div>
 
-        <div>
-            Is it on right now?
-            {% if on %} Yes {% else %} No {% endif %}
+            <div>
+                Is it on right now?
+                {% if on %} Yes {% else %} No {% endif %}
+            </div>
+            <a href="/toggle/{{ i }} "> Toggle </a>
         </div>
-        <a href="/toggle"> Toggle </a>
     </div>
+    {% endfor %}
 </body>
 
 </html>
