@@ -16,6 +16,12 @@ def toggle(i: int):
     return redirect(url_for("home"))
 
 @app.route("/get")
+def geti(i):
+    global on
+    return {"active": on[i]}
+
+
+@app.route("/get")
 def get():
     global on
     return {"active": on}
